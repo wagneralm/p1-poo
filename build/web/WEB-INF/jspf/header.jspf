@@ -1,0 +1,31 @@
+<%-- any content can be specified here e.g.: --%>
+<%@ page pageEncoding="UTF-8" %>
+
+<%
+    if(request.getParameter("session.username") != null) {
+        String username = request.getParameter("session.username");
+        session.setAttribute("session.username", username);
+    }else if (request.getParameter("session.logout") != null) {
+        session.removeAttribute("session.username");
+    }
+%>
+
+<h4>Wagner de Almeida</h4>
+<nav>
+    <%if (session.getAttribute("session.username") == null) {%>
+    <form method="post">
+        <label for="user">User: </label>
+        <input type="text" id="user" name="session.username">
+        <input type="submit" value="Login">
+    </form>
+    <%} else {%>
+    <p>Bem vindo, <%=session.getAttribute("session.username")%></p>
+    <ul>
+        <li><a href="#">Link 1</a></li>
+        <li><a href="#">Link 2</a></li>
+    </ul>
+    <form method="post">
+        <input type="submit" value="Logout" name="session.logout">
+    </form>
+    <%}%>
+</nav>
