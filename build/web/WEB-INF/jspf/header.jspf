@@ -7,6 +7,37 @@
         session.setAttribute("session.username", username);
     }else if (request.getParameter("session.logout") != null) {
         session.removeAttribute("session.username");
+        session.removeAttribute("session.p1si");
+        session.removeAttribute("session.p2si");
+        session.removeAttribute("session.p1ef");
+        session.removeAttribute("session.p2ef");
+        session.removeAttribute("session.p1so");
+        session.removeAttribute("session.p2so");
+        session.removeAttribute("session.p1es");
+        session.removeAttribute("session.p2es");
+        session.removeAttribute("session.p1st");
+        session.removeAttribute("session.p2st");
+        session.removeAttribute("session.p1poo");
+        session.removeAttribute("session.p2poo");
+        session.removeAttribute("session.p1lp");
+        session.removeAttribute("session.p2lp");
+    }
+    
+    if (request.getParameter("atualizar") != null) {
+        session.setAttribute("session.p1si", request.getParameter("p1si"));
+        session.setAttribute("session.p2si", request.getParameter("p2si"));
+        session.setAttribute("session.p1ef", request.getParameter("p1ef"));
+        session.setAttribute("session.p2ef", request.getParameter("p2ef"));
+        session.setAttribute("session.p1so", request.getParameter("p1so"));
+        session.setAttribute("session.p2so", request.getParameter("p2so"));
+        session.setAttribute("session.p1es", request.getParameter("p1es"));
+        session.setAttribute("session.p2es", request.getParameter("p2es"));
+        session.setAttribute("session.p1st", request.getParameter("p1st"));
+        session.setAttribute("session.p2st", request.getParameter("p2st"));
+        session.setAttribute("session.p1poo", request.getParameter("p1poo"));
+        session.setAttribute("session.p2poo", request.getParameter("p2poo"));
+        session.setAttribute("session.p1lp", request.getParameter("p1lp"));
+        session.setAttribute("session.p2lp", request.getParameter("p2lp"));
     }
 %>
 
@@ -21,8 +52,8 @@
     <%} else {%>
     <p>Bem vindo, <%=session.getAttribute("session.username")%></p>
     <ul>
-        <li><a href="#">Link 1</a></li>
-        <li><a href="#">Link 2</a></li>
+        <li><a href="index.jsp">Index</a></li>
+        <li><a href="disciplinas.jsp">Disciplinas</a></li>
     </ul>
     <form method="post">
         <input type="submit" value="Logout" name="session.logout">
